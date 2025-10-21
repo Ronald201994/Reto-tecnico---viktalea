@@ -1,0 +1,60 @@
+<h2 mat-dialog-title>{{ data.client ? 'Editar Cliente' : 'Nuevo Cliente' }}</h2>
+
+<form [formGroup]="clientForm" class="client-wrapper-form" (ngSubmit)="save()">
+
+    <div class="client-wrapper-form-grid">
+
+        <mat-form-field appearance="outline">
+            <mat-label>RUC</mat-label>
+            <input matInput formControlName="ruc" maxlength="11" />
+            <mat-error *ngIf="clientForm.get('ruc')?.hasError('required')">
+                El RUC es obligatorio
+            </mat-error>
+            <mat-error *ngIf="clientForm.get('ruc')?.hasError('minlength')">
+                Debe tener 11 dígitos
+            </mat-error>
+        </mat-form-field>
+
+        <mat-form-field appearance="outline">
+            <mat-label>Razón Social</mat-label>
+            <input matInput formControlName="businessName" />
+            <mat-error *ngIf="clientForm.get('businessName')?.hasError('required')">
+                La Razón Social es obligatoria
+            </mat-error>
+        </mat-form-field>
+
+        <mat-form-field appearance="outline">
+            <mat-label>Teléfono</mat-label>
+            <input matInput formControlName="contactPhone" />
+            <mat-error *ngIf="clientForm.get('contactPhone')?.hasError('required')">
+                El teléfono es obligatorio
+            </mat-error>
+        </mat-form-field>
+
+        <mat-form-field appearance="outline">
+            <mat-label>Email</mat-label>
+            <input matInput type="email" formControlName="contactEmail" />
+            <mat-error *ngIf="clientForm.get('contactEmail')?.hasError('required')">
+                El correo es obligatorio
+            </mat-error>
+            <mat-error *ngIf="clientForm.get('contactEmail')?.hasError('email')">
+                Debe ser un correo válido
+            </mat-error>
+        </mat-form-field>
+
+        <mat-form-field appearance="outline" class="full-width">
+            <mat-label>Dirección</mat-label>
+            <input matInput formControlName="address" />
+        </mat-form-field>
+
+    </div>
+
+    <div class="client-wrapper-dialog-actions">
+        <button mat-stroked-button color="warn" type="button" (click)="cancel()">
+            Cancelar
+        </button>
+        <button mat-raised-button color="primary" type="submit">
+            Guardar
+        </button>
+    </div>
+</form>

@@ -1,0 +1,8 @@
+<div class="toast-wrapper" [ngClass]="data.type || 'success'">
+    <span class="toast-icon">
+        <mat-icon *ngIf="data.type === 'success'">check_circle</mat-icon>
+        <mat-icon *ngIf="data.type === 'error'">error</mat-icon>
+        <mat-icon *ngIf="data.type === 'info'">info</mat-icon>
+    </span>
+    <span class="toast-message">{{ data.message }}</span>
+</div>

@@ -1,0 +1,77 @@
+.client-wrapper-form {
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+    width: 100%;
+    padding: 1rem;
+    box-sizing: border-box;
+    font-family: Roboto, Arial, sans-serif;
+
+    /* Grid de campos */
+    .client-wrapper-form-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+        gap: 1.5rem;
+
+        .full-width {
+            grid-column: 1 / -1;
+        }
+    }
+
+    /* Botones del diálogo */
+    .client-wrapper-dialog-actions {
+        display: flex;
+        justify-content: flex-end;
+        gap: 1rem;
+        margin-top: 1rem;
+    }
+
+    /* Mensajes de error debajo de cada campo */
+    mat-error {
+        font-size: 0.875rem;
+        color: #d32f2f;
+        /* rojo de error Material */
+    }
+}
+
+/* Estilos para mat-form-field */
+mat-form-field {
+    width: 100%;
+
+    &.mat-form-field {
+        background-color: transparent;
+        /* quitar fondo gris */
+        border-radius: 6px;
+    }
+
+    .mat-form-field-outline {
+        border-color: #c0c0c0;
+    }
+
+    input.mat-input-element {
+        padding: 0.5rem 0.75rem;
+        font-size: 1rem;
+    }
+}
+
+/* Hover y focus */
+mat-form-field.mat-focused .mat-form-field-outline {
+    border-color: #1976d2;
+    /* azul Material */
+}
+
+::ng-deep .mat-mdc-form-field-error-wrapper {
+    padding: 0 !important;
+}
+
+/* Resaltar errores */
+mat-form-field.mat-form-field-invalid.mat-focused .mat-form-field-outline {
+    border-color: #d32f2f;
+}
+
+/* Responsive */
+@media (max-width: 600px) {
+    .client-wrapper-form-grid {
+        grid-template-columns: 1fr;
+    }
+}

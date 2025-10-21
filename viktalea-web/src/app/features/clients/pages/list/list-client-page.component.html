@@ -1,0 +1,69 @@
+<div class="client-wrapper-container">
+
+    <!-- Header con título y botón -->
+    <div class="client-wrapper-header">
+        <h2 class="client-wrapper-title">Clientes</h2>
+        <button mat-raised-button color="primary" (click)="openCreateDialog()">
+            <mat-icon>add</mat-icon> Nuevo Cliente
+        </button>
+    </div>
+
+    <!-- Filtros -->
+    <div class="client-wrapper-filters">
+        <mat-form-field appearance="outline">
+            <mat-label>Filtrar por RUC</mat-label>
+            <input matInput [formControl]="rucFilter" placeholder="Ingrese RUC">
+        </mat-form-field>
+
+        <mat-form-field appearance="outline">
+            <mat-label>Filtrar por Razón Social</mat-label>
+            <input matInput [formControl]="businessNameFilter" placeholder="Ingrese Razón Social">
+        </mat-form-field>
+    </div>
+
+    <!-- Tabla responsive -->
+    <div class="client-wrapper-table-container">
+        <mat-table [dataSource]="dataSource" class="client-wrapper-table mat-elevation-z8" matSort>
+            <!-- Columnas igual que antes -->
+            <ng-container matColumnDef="ruc">
+                <mat-header-cell *matHeaderCellDef mat-sort-header>RUC</mat-header-cell>
+                <mat-cell *matCellDef="let client">{{ client.ruc }}</mat-cell>
+            </ng-container>
+
+            <ng-container matColumnDef="businessName">
+                <mat-header-cell *matHeaderCellDef mat-sort-header>Razón Social</mat-header-cell>
+                <mat-cell *matCellDef="let client">{{ client.businessName }}</mat-cell>
+            </ng-container>
+
+            <ng-container matColumnDef="contactPhone">
+                <mat-header-cell *matHeaderCellDef>Teléfono</mat-header-cell>
+                <mat-cell *matCellDef="let client">{{ client.contactPhone }}</mat-cell>
+            </ng-container>
+
+            <ng-container matColumnDef="contactEmail">
+                <mat-header-cell *matHeaderCellDef>Email</mat-header-cell>
+                <mat-cell *matCellDef="let client">{{ client.contactEmail }}</mat-cell>
+            </ng-container>
+
+            <ng-container matColumnDef="address">
+                <mat-header-cell *matHeaderCellDef>Dirección</mat-header-cell>
+                <mat-cell *matCellDef="let client">{{ client.address }}</mat-cell>
+            </ng-container>
+
+            <ng-container matColumnDef="actions">
+                <mat-header-cell *matHeaderCellDef>Acciones</mat-header-cell>
+                <mat-cell *matCellDef="let client">
+                    <button mat-icon-button color="accent" (click)="openEditDialog(client)">
+                        <mat-icon>edit</mat-icon>
+                    </button>
+                    <button mat-icon-button color="warn" (click)="deleteClient(client)">
+                        <mat-icon>delete</mat-icon>
+                    </button>
+                </mat-cell>
+            </ng-container>
+
+            <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
+            <mat-row *matRowDef="let row; columns: displayedColumns;"></mat-row>
+        </mat-table>
+    </div>
+</div>

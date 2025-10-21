@@ -1,0 +1,92 @@
+.client-wrapper-container {
+    width: 100%;
+    padding: 20px 150px;
+    box-sizing: border-box;
+
+    /* Ajuste responsivo */
+    @media (max-width: 768px) {
+        padding: 0.5rem;
+    }
+}
+
+.client-wrapper-filters {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1rem;
+    margin-bottom: 1rem;
+
+    mat-form-field {
+        flex: 1 1 200px;
+        min-width: 150px;
+    }
+}
+
+/* Header con título y botón */
+.client-wrapper-header {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 1.5rem;
+    gap: 1rem;
+
+    .client-wrapper-title {
+        margin: 0;
+        font-size: 1.8rem;
+        font-weight: 600;
+
+        @media (max-width: 768px) {
+            font-size: 1.5rem;
+        }
+    }
+
+    button {
+        height: 40px;
+    }
+}
+
+.client-wrapper-table-container {
+    width: 100%;
+    overflow-x: auto;
+}
+
+.client-wrapper-table {
+    width: 100%;
+    min-width: 600px;
+    border-radius: 6px;
+    background-color: #fff;
+
+    mat-header-cell,
+    mat-cell {
+        padding: 0.75rem 1rem;
+        word-wrap: break-word;
+    }
+
+    mat-header-cell {
+        font-weight: 600;
+        text-transform: uppercase;
+        color: rgba(0, 0, 0, 0.7);
+    }
+
+    mat-row:hover {
+        background-color: rgba(0, 0, 0, 0.03);
+    }
+
+    mat-cell:last-child {
+        display: flex;
+        gap: 0.5rem;
+    }
+}
+
+.client-wrapper-form {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+
+    .client-wrapper-dialog-actions {
+        display: flex;
+        justify-content: flex-end;
+        gap: 1rem;
+        margin-top: 1rem;
+    }
+}
